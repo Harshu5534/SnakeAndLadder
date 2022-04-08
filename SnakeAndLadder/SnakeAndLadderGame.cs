@@ -27,7 +27,7 @@ namespace SnakeAndLadder
                 switch (option)
                 {
                     case NO_PLAY:
-                        this.position = 0;
+                        this.position += 0;
                         break;
                     case SNAKE:
                         this.position -= this.DieRoll();
