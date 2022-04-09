@@ -43,7 +43,6 @@ namespace SnakeAndLadder
                             this.position -= roll;
                         }
                         break;
-                        
                 }
                 Console.WriteLine(this.position);
             }
