@@ -9,6 +9,7 @@ namespace SnakeAndLadder
             SnakeAndLadderGame game = new SnakeAndLadderGame();
             Console.WriteLine(game.DieRoll());
             game.Game();
+            game.TwoPlayers();
        
         }
     }

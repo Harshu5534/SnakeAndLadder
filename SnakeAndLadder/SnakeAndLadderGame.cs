@@ -9,7 +9,7 @@ namespace SnakeAndLadder
     public class SnakeAndLadderGame
     {
         const int NO_PLAY = 0, SNAKE = 1, LADDER = 2;
-        int position = 0;
+        int position = 0, count = 0,Player1=0,Player2=0;
 
         public int DieRoll()
         {
@@ -17,7 +17,7 @@ namespace SnakeAndLadder
             int DiePosition = random.Next(1, 7);
                  return DiePosition ;
         }
-        public void Game()
+        public int Game()
         {
             while (this.position < 100)
             {
@@ -36,15 +36,46 @@ namespace SnakeAndLadder
                         }
                         break;
                     case LADDER:
-                        int roll = this.DieRoll() ;
-                        this.position += roll;
+                        this.position += this.DieRoll(); 
                         if (this.position > 100)
                         {
-                            this.position -= roll;
+                            this.position -= this.DieRoll();
                         }
                         break;
                 }
-                Console.WriteLine(this.position);
+                count++;
+            }
+            Console.WriteLine("Number of Times Dice Was Played To Win The Game: "+""+count);
+            Console.WriteLine("The Position is :" + this.position);
+            return position;
+        }
+        public void TwoPlayers()
+        {
+            Random random = new Random();
+            int check =random.Next(0,2);
+            if(check==0)
+            {
+                Player1 = Game();
+            }
+            else
+            {
+                Player2 = Game();
+            }
+            while(Player1<100 && Player2<100)
+            {
+                this.Player1 = this.Game();
+                if(this.Player1==100)
+                {
+                    Console.WriteLine("Player1 Wins The Game");
+                }
+                else
+                {
+                    this.Player1 = this.Game();
+                }
+                if(Player2==100)
+                {
+                    Console.WriteLine("Player2 Wins The Game");
+                }
             }
         }
     }
